@@ -14,7 +14,13 @@ class Location(models.Model):
     - sunlight level (high, medium, low)
     """
     name = models.CharField(max_length=120)
-    sunlight = models.CharField(max_length=10)
+    sunlight = models.CharField(max_length=64)
+
+    def __str__(self):
+        return self.name_and_sunlight()
+
+    def name_and_sunlight(self):
+        return "{} ({})".format(self.name, self.sunlight)
 
 
 class Plant(models.Model):
@@ -22,21 +28,26 @@ class Plant(models.Model):
     - name: plant name,
     - price: purchase cost,
     - location: relation one-to-many with location
-    - created: when the plant arrived
+    - created: when the plant arrived to your home
     - updated: last date when the plant was watered, fertilized, ect.
     - difficulty: liczba głosów na przepis (domyślnie 0)
     - picture: graphical representation
     - notes: additional info about a plant (special care, sun requirements, ect)
     """
     name = models.CharField(max_length=255)
-    price = models.PositiveIntegerField
+    price = models.PositiveIntegerField(null=True)
     location = models.ForeignKey(Location, on_delete=models.CASCADE)
-    created = models.DateTimeField(auto_now_add=True, blank=False)
+    created = models.DateTimeField(blank=True)
     updated = models.DateTimeField(blank=True)
-    preparation_time = models.IntegerField()
+    notes = models.CharField(max_length=1500)
     difficulty = models.IntegerField(default=0)
     picture = models.ImageField(upload_to="pictures", null=True, blank=True)
-    notes = models.CharField(max_length=1500)
+
+    def __str__(self):
+        return self.name_and_location()
+
+    def name_and_location(self):
+        return "{} ({})".format(self.name, self.location)
 
 
 class Pot(models.Model):
@@ -46,8 +57,14 @@ class Pot(models.Model):
     - capacity (in litres)
     """
     type = models.CharField(max_length=20)
-    price = models.PositiveIntegerField
-    capacity = models.SmallIntegerField
+    price = models.PositiveIntegerField(null=True)
+    capacity = models.IntegerField
+
+    def __str__(self):
+        return self.type_and_capacity()
+
+    def type_and_capacity(self):
+        return "{} ({})".format(self.type, self.capacity)
 
 
 class Soil(models.Model):
@@ -57,7 +74,7 @@ class Soil(models.Model):
     """
 
     type = models.ManyToManyField(Plant)
-    price = models.PositiveIntegerField
+    price = models.PositiveIntegerField(null=True)
 
 
 class Supplier(models.Model):
