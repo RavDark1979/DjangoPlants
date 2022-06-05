@@ -1,6 +1,6 @@
 from django.shortcuts import render, get_object_or_404, redirect
 from .forms import PlantForm, PotForm, PlanForm, SupplierForm, LocationForm, SoilForm
-from .models import Plant, Plan
+from .models import Plant, Plan, Pot, Supplier, Soil, Location
 
 
 # Create your views here.
@@ -39,7 +39,7 @@ def edit_plant(request, id):
     if form.is_valid():
         form.save()
 
-    return redirect(all_plants)
+    return render(request, 'plant_form.html', {'form': form})
 
 
 def add_pot(request):
@@ -53,7 +53,7 @@ def add_pot(request):
 
 def edit_pot(request, id):
     """edit view for pots that are in a database"""
-    pot = get_object_or_404(Plant, pk=id)
+    pot = get_object_or_404(Pot, pk=id)
     form = PotForm(request.POST or None, request.FILES or None, instance=pot)
     if form.is_valid():
         form.save()
@@ -72,7 +72,7 @@ def add_soil(request):
 
 def edit_soil(request, id):
     """edit view for soil that is in a database"""
-    soil = get_object_or_404(Plant, pk=id)
+    soil = get_object_or_404(Soil, pk=id)
     form = SoilForm(request.POST or None, request.FILES or None, instance=soil)
     if form.is_valid():
         form.save()
@@ -91,7 +91,7 @@ def add_location(request):
 
 def edit_location(request, id):
     """edit view for locations that are in a database"""
-    location = get_object_or_404(Plant, pk=id)
+    location = get_object_or_404(Location, pk=id)
     form = LocationForm(request.POST or None, request.FILES or None, instance=location)
     if form.is_valid():
         form.save()
@@ -110,7 +110,7 @@ def add_supplier(request):
 
 def edit_supplier(request, id):
     """edit view for suppliers that are in a database"""
-    supplier = get_object_or_404(Plant, pk=id)
+    supplier = get_object_or_404(Supplier, pk=id)
     form = SupplierForm(request.POST or None, request.FILES or None, instance=supplier)
     if form.is_valid():
         form.save()
@@ -129,9 +129,9 @@ def add_plan(request):
 
 def edit_plan(request, id):
     """edit view for plans that are in a database"""
-    plan = get_object_or_404(Plant, pk=id)
+    plan = get_object_or_404(Plan, pk=id)
     form = PlanForm(request.POST or None, request.FILES or None, instance=plan)
     if form.is_valid():
         form.save()
 
-    return redirect(all_plans)
+    return render(request, 'plan_form.html', {'form': form})
