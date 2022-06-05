@@ -18,7 +18,9 @@ from django.urls import path
 from django.contrib.auth import views as auth_views
 from django.conf import settings
 from django.conf.urls.static import static
-from magdziungla.views import page, all_plants, all_plans, add_plant, add_pot, add_plan, add_soil, add_location, add_supplier
+from magdziungla.views import page, all_plants, all_plans, add_plant, \
+    add_pot, add_plan, add_soil, add_location, add_supplier, edit_plant,\
+    edit_pot, edit_soil, edit_plan, edit_location, edit_supplier
 
 urlpatterns = [
     path('admin/', admin.site.urls),
@@ -28,11 +30,17 @@ urlpatterns = [
     path('plants/', all_plants),
     path('plans/', all_plans),
     path('add_plant/', add_plant),
+    path('edit_plant', edit_plant),
     path('add_pot/', add_pot),
+    path('edit_pot', edit_pot),
     path('add_supplier/', add_supplier),
+    path('edit_supplier', edit_supplier),
     path('add_plan/', add_plan),
+    path('edit_plan', edit_plan),
     path('add_location/', add_location),
+    path('edit_location', edit_location),
     path('add_soil/', add_soil),
+    path('edit_soil', edit_soil),
 
 
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
