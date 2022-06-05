@@ -30,17 +30,17 @@ urlpatterns = [
     path('plants/', all_plants),
     path('plans/', all_plans),
     path('add_plant/', add_plant),
-    path('edit_plant', edit_plant),
+    path('edit_plant/<int:id>/', edit_plant),
     path('add_pot/', add_pot),
-    path('edit_pot', edit_pot),
+    path('edit_pot/<int:id>/', edit_pot),
     path('add_supplier/', add_supplier),
-    path('edit_supplier', edit_supplier),
+    path('edit_supplier/<int:id>/', edit_supplier),
     path('add_plan/', add_plan),
-    path('edit_plan', edit_plan),
+    path('edit_plan/<int:id>/', edit_plan),
     path('add_location/', add_location),
-    path('edit_location', edit_location),
+    path('edit_location/<int:id>/', edit_location),
     path('add_soil/', add_soil),
-    path('edit_soil', edit_soil),
+    path('edit_soil/<int:id>/', edit_soil),
 
 
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
