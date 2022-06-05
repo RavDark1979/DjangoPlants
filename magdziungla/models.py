@@ -4,9 +4,9 @@ from django.db import models
 # Create your models here.
 #    Lokacje done
 #    Rośliny (relacja jeden do wiele z lokacją) done
-#    Donice (jeden do jeden z rośliną?)
-#    Ziemia/podłoże (typ? wiele do wiele z rośliną?)
-#    Dostawca (gdzie roślina była kupiona) - wiele do wiele z rośliną?
+#    Donice (jeden do jeden z rośliną?) done
+#    Ziemia/podłoże (typ? wiele do wiele z rośliną?) done
+#    Dostawca (gdzie roślina była kupiona) - wiele do wiele z rośliną? done
 
 class Location(models.Model):
     """
@@ -54,27 +54,36 @@ class Pot(models.Model):
     """
     - type: plastic, stone, ect.
     - price: purchase cost,
-    - capacity (in litres)
+    - radius (in cm)
+    - plant: relation one to one with pot
     """
     type = models.CharField(max_length=20)
     price = models.PositiveIntegerField(null=True)
-    capacity = models.IntegerField
+    radius = models.IntegerField(blank=True, null=True)
+    plant = models.OneToOneField(Plant, on_delete=models.CASCADE, blank=True, null=True)
 
     def __str__(self):
-        return self.type_and_capacity()
+        return self.type_and_radius()
 
-    def type_and_capacity(self):
-        return "{} ({})".format(self.type, self.capacity)
+    def type_and_radius(self):
+        return "{} ({})".format(self.type, self.radius)
 
 
 class Soil(models.Model):
     """
+    - name: name of the soil
     - type relation many-to-many with Plant,
     - price: purchase cost,
     """
-
+    name = models.CharField(max_length=100, null=True)
     type = models.ManyToManyField(Plant)
     price = models.PositiveIntegerField(null=True)
+
+    def __str__(self):
+        return self.name_and_type()
+
+    def name_and_type(self):
+        return "{} ({})".format(self.name, self.type)
 
 
 class Supplier(models.Model):
@@ -85,34 +94,29 @@ class Supplier(models.Model):
     """
     name = models.CharField(max_length=64)
     address = models.CharField(max_length=128)
-    plant = models.ManyToManyField(Plant)
-    pot = models.ManyToManyField(Pot)
-    soil = models.ManyToManyField(Soil)
+    plant = models.ManyToManyField(Plant, blank=True)
+    pot = models.ManyToManyField(Pot, blank=True)
+    soil = models.ManyToManyField(Soil, blank=True)
 
-# class RecipePlan(models.Model):
-#     """
-#     - meal_name: nazwa posiłku (śniadanie, obiad itp),
-#     - recipe: relacja do tabeli przepisów
-#     - plan: relacja do tabeli planów
-#     - order: kolejność posiłków w planie,
-#     - day_name: "from .enums import DayName"
-#     """
-#     meal_name = models.CharField(max_length=255)
-#     recipe = models.ForeignKey(Recipe, on_delete=models.CASCADE)
-#     plan = models.ForeignKey(Plan, on_delete=models.CASCADE)
-#     order = models.IntegerField()
-#     day_name = models.CharField(max_length=16, choices=DayName.choices())
-#
-# class Page(models.Model):
-#     """
-#     - title: tytuł strony,
-#     - description: treść strony,
-#     - slug: unikalny identyfikator tworzony na podstawie tytułu
-#     """
-#     title = models.CharField(max_length=255)
-#     description = models.TextField()
-#     slug = models.SlugField(unique=True)
-#
-#     def save(self, *args, **kwargs):
-#         self.slug = slugify(self.title)
-#         super(Page, self).save(*args, **kwargs)
+    def __str__(self):
+        return self.name_and_address()
+
+    def name_and_address(self):
+        return "{} ({})".format(self.name, self.address)
+
+
+class Plan(models.Model):
+    """
+        - name (watering, ferilizing, cleaning)
+        - description: detail work in this place
+        - created - date of creation
+    """
+    name = models.CharField(max_length=255)
+    description = models.TextField()
+    created = models.DateTimeField(blank=True)
+
+    def __str__(self):
+        return self.name_and_created()
+
+    def name_and_created(self):
+        return "{} ({})".format(self.name, self.created)
