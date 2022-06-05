@@ -1,7 +1,7 @@
 from django.shortcuts import render
-from django.http import HttpResponse
-from .models import Plant
+
 from .forms import PlantForm, PotForm, PlanForm, SupplierForm, LocationForm, SoilForm
+from .models import Plant, Plan
 
 
 # Create your views here.
@@ -13,6 +13,11 @@ def page(request):
 def all_plants(request):
     plants = Plant.objects.all()
     return render(request, 'plant_list.html', {'plants': plants})
+
+
+def all_plans(request):
+    plans = Plan.objects.all()
+    return render(request, 'plan_list.html', {'plans': plans})
 
 
 def add_plant(request):
@@ -56,7 +61,7 @@ def add_supplier(request):
 
 
 def add_plan(request):
-    form = PlanForm(request.POST or None)
+    form = PlanForm(request.POST)
     if form.is_valid():
         form.save()
 

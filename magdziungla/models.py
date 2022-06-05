@@ -34,7 +34,7 @@ class Plant(models.Model):
     - picture: graphical representation
     - notes: additional info about a plant (special care, sun requirements, ect)
     """
-    objects = None
+
     name = models.CharField(max_length=255)
     price = models.PositiveIntegerField(null=True)
     location = models.ForeignKey(Location, on_delete=models.CASCADE)
@@ -112,6 +112,7 @@ class Plan(models.Model):
         - description: detail work in this place
         - created - date of creation
     """
+
     name = models.CharField(max_length=255)
     description = models.TextField()
     created = models.DateField(blank=True, null=True)
@@ -120,4 +121,4 @@ class Plan(models.Model):
         return self.name_and_created()
 
     def name_and_created(self):
-        return "name:{}, created: {}".format(self.name, self.created)
+        return "name: {}, created: {}, description: {}".format(self.name, self.created, self.description)
