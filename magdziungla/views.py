@@ -9,19 +9,19 @@ from .models import Plant, Plan
 
 def page(request):
     """main page view"""
-    return render(request, 'main_page.html')
+    return render(request, 'main_page_form.html')
 
 
 def all_plants(request):
     """view of all plants currently uploaded to the databse"""
     plants = Plant.objects.all()
-    return render(request, 'plant_list.html', {'plants': plants})
+    return render(request, 'plant_list_form.html', {'plants': plants})
 
 
 def all_plans(request):
     """view of all plans currently uploaded to the databse"""
     plans = Plan.objects.all()
-    return render(request, 'plan_list.html', {'plans': plans})
+    return render(request, 'plan_list_form.html', {'plans': plans})
 
 
 def add_plant(request):
@@ -30,7 +30,7 @@ def add_plant(request):
     if form.is_valid():
         form.save()
 
-    return render(request, 'add_plant.html', {'form': form})
+    return render(request, 'plant_form.html', {'form': form})
 
 
 def add_pot(request):
@@ -39,7 +39,7 @@ def add_pot(request):
     if form.is_valid():
         form.save()
 
-    return render(request, 'add_pot.html', {'form': form})
+    return render(request, 'pot_form.html', {'form': form})
 
 
 def add_soil(request):
@@ -48,7 +48,7 @@ def add_soil(request):
     if form.is_valid():
         form.save()
 
-    return render(request, 'add_soil.html', {'form': form})
+    return render(request, 'soil_form.html', {'form': form})
 
 
 def add_location(request):
@@ -57,7 +57,7 @@ def add_location(request):
     if form.is_valid():
         form.save()
 
-    return render(request, 'add_location.html', {'form': form})
+    return render(request, 'location_form.html', {'form': form})
 
 
 def add_supplier(request):
@@ -66,7 +66,7 @@ def add_supplier(request):
     if form.is_valid():
         form.save()
 
-    return render(request, 'add_supplier.html', {'form': form})
+    return render(request, 'supplier_form.html', {'form': form})
 
 
 def add_plan(request):
@@ -75,4 +75,4 @@ def add_plan(request):
     if form.is_valid():
         form.save()
 
-    return render(request, 'add_plan.html', {'form': form})
+    return render(request, 'plan_form.html', {'form': form})
