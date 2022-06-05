@@ -1,5 +1,4 @@
 from django.shortcuts import render
-
 from .forms import PlantForm, PotForm, PlanForm, SupplierForm, LocationForm, SoilForm
 from .models import Plant, Plan
 
