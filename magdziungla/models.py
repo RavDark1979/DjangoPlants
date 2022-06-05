@@ -20,7 +20,7 @@ class Location(models.Model):
         return self.name_and_sunlight()
 
     def name_and_sunlight(self):
-        return "{} ({})".format(self.name, self.sunlight)
+        return "name: {}, sunlight level: {}".format(self.name, self.sunlight)
 
 
 class Plant(models.Model):
@@ -34,11 +34,12 @@ class Plant(models.Model):
     - picture: graphical representation
     - notes: additional info about a plant (special care, sun requirements, ect)
     """
+    objects = None
     name = models.CharField(max_length=255)
     price = models.PositiveIntegerField(null=True)
     location = models.ForeignKey(Location, on_delete=models.CASCADE)
-    created = models.DateTimeField(blank=True)
-    updated = models.DateTimeField(blank=True)
+    created = models.DateField(blank=True, null=True)
+    updated = models.DateField(blank=True, null=True)
     notes = models.CharField(max_length=1500)
     difficulty = models.IntegerField(default=0)
     picture = models.ImageField(upload_to="pictures", null=True, blank=True)
@@ -47,7 +48,7 @@ class Plant(models.Model):
         return self.name_and_location()
 
     def name_and_location(self):
-        return "{} ({})".format(self.name, self.location)
+        return "name: {}, location: {}".format(self.name, self.location)
 
 
 class Pot(models.Model):
@@ -66,7 +67,7 @@ class Pot(models.Model):
         return self.type_and_radius()
 
     def type_and_radius(self):
-        return "{} ({})".format(self.type, self.radius)
+        return "type: {}, radius: {}".format(self.type, self.radius)
 
 
 class Soil(models.Model):
@@ -83,7 +84,7 @@ class Soil(models.Model):
         return self.name_and_type()
 
     def name_and_type(self):
-        return "{} ({})".format(self.name, self.type)
+        return "name: {}, type: {}".format(self.name, self.type)
 
 
 class Supplier(models.Model):
@@ -102,7 +103,7 @@ class Supplier(models.Model):
         return self.name_and_address()
 
     def name_and_address(self):
-        return "{} ({})".format(self.name, self.address)
+        return "name: {}, address: {}".format(self.name, self.address)
 
 
 class Plan(models.Model):
@@ -113,10 +114,10 @@ class Plan(models.Model):
     """
     name = models.CharField(max_length=255)
     description = models.TextField()
-    created = models.DateTimeField(blank=True)
+    created = models.DateField(blank=True, null=True)
 
     def __str__(self):
         return self.name_and_created()
 
     def name_and_created(self):
-        return "{} ({})".format(self.name, self.created)
+        return "name:{}, created: {}".format(self.name, self.created)
