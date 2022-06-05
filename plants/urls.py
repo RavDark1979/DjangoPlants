@@ -18,10 +18,11 @@ from django.urls import path
 from django.contrib.auth import views as auth_views
 from django.conf import settings
 from django.conf.urls.static import static
-from magdziungla.views import test
+from magdziungla.views import page
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('test/', test),
+    path('main/', page, name='mainpage'),
     path('', auth_views.LoginView.as_view()),
+    path('logout/', auth_views.LoginView.as_view()),
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
