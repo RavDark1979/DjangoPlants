@@ -7,12 +7,12 @@
     <link rel="stylesheet" href="{% static 'my_css.css' %}">
 </head>
 <body>
+    <a class="btn btn-primary" href="/">Return to the main page</a>
     {% if plants|length == 0 %}
         <h3>No plants in database</h3>
     {% else %}
         <h3>Current number of plants in my database: {{ plants|length }}</h3>
         <hr>
-
         <h2>My current list of plants:</h2>
         {% for plant in plants %}
         <p>{{ plant }}</p>
