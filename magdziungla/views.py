@@ -1,7 +1,8 @@
 from django.shortcuts import render, get_object_or_404, redirect
 from .forms import PlantForm, PotForm, PlanForm, SupplierForm, LocationForm, SoilForm
 from .models import Plant, Plan, Pot, Supplier, Soil, Location
-
+from django.contrib.auth.decorators import login_required
+from django.conf import settings
 
 # Create your views here.
 
@@ -10,13 +11,13 @@ def page(request):
     """main page view"""
     return render(request, 'main_page_form.html')
 
-
+@login_required(redirect_field_name='login')
 def all_plants(request):
     """view of all plants currently uploaded to a database"""
     plants = Plant.objects.all()
     return render(request, 'plant_list_form.html', {'plants': plants})
 
-
+@login_required(redirect_field_name='login')
 def all_plans(request):
     """view of all plans currently uploaded to a database"""
     plans = Plan.objects.all()
@@ -135,3 +136,15 @@ def edit_plan(request, id):
         form.save()
 
     return render(request, 'plan_form.html', {'form': form})
+
+
+
+
+
+
+def only_logged_in(request):
+    if not request.user.is_authenticated:
+        return redirect('%s?next=%s' % (settings.LOGIN_URL, request.path))
+
+    # jeśli użytkownik zalogowany,
+    # pokaż widok

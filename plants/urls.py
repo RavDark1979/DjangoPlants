@@ -24,8 +24,8 @@ from magdziungla.views import page, all_plants, all_plans, add_plant, \
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('main/', page, name='mainpage'),
-    path('', auth_views.LoginView.as_view()),
+    path('', page, name='mainpage'),
+    path('login/', auth_views.LoginView.as_view(), name='login'),
     path('logout/', auth_views.LoginView.as_view()),
     path('plants/', all_plants),
     path('plans/', all_plans),
