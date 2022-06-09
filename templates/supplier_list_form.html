@@ -1,0 +1,22 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="{% static 'my_css.css' %}">
+</head>
+<body>
+    {% if suppliers|length == 0 %}
+        <h3>No suppliers in database</h3>
+    {% else %}
+        <h3>Current number of suppliers in my database: {{ suppliers|length }}</h3>
+        <hr>
+        <h2>My current list of suppliers:</h2>
+        {% for supplier in suppliers %}
+        <p>{{ supplier }}</p>
+        <a href="{% url 'edit_supplier' supplier.id %}">Edit supplier</a>
+    {% endfor %}
+    {% endif %}
+</body>
+</html>

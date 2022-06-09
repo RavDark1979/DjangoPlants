@@ -23,6 +23,11 @@ def all_plans(request):
     plans = Plan.objects.all()
     return render(request, 'plan_list_form.html', {'plans': plans})
 
+@login_required(redirect_field_name='login')
+def all_suppliers(request):
+    """view of all suppliers currently uploaded to a database"""
+    suppliers = Supplier.objects.all()
+    return render(request, 'supplier_list_form.html', {'suppliers': suppliers})
 
 def add_plant(request):
     """view of form for adding plants to a database"""

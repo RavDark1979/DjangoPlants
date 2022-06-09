@@ -1,13 +1,22 @@
+{% load static %}
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <title>Title</title>
+    <link rel="stylesheet" href="{% static 'my_css.css' %}">
 </head>
 <body>
-<h2>My current list of plans:</h2>
-{% for plan in plans %}
-<p>{{ plan }}</p>
-{% endfor %}
+    {% if plans|length == 0 %}
+        <h3>No plans in database</h3>
+    {% else %}
+        <h3>Current number of plans in my database: {{ plans|length }}</h3>
+        <hr>
+        <h2>My current list of plans:</h2>
+        {% for plan in plans %}
+        <p>{{ plan }}</p>
+        <a href="{% url 'edit_plan' plan.id %}">Edit plan</a>
+    {% endfor %}
+    {% endif %}
 </body>
 </html>

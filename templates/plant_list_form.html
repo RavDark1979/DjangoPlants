@@ -1,13 +1,23 @@
+{% load static %}
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <title>Title</title>
+    <link rel="stylesheet" href="{% static 'my_css.css' %}">
 </head>
 <body>
-<h2>My current list of plants:</h2>
-{% for plant in plants %}
-<p>{{ plant }}</p>
-{% endfor %}
+    {% if plants|length == 0 %}
+        <h3>No plants in database</h3>
+    {% else %}
+        <h3>Current number of plants in my database: {{ plants|length }}</h3>
+        <hr>
+
+        <h2>My current list of plants:</h2>
+        {% for plant in plants %}
+        <p>{{ plant }}</p>
+        <a href="{% url 'edit_plant' plant.id %}">Edit plant</a>
+    {% endfor %}
+    {% endif %}
 </body>
 </html>
