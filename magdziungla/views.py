@@ -1,8 +1,9 @@
-from django.shortcuts import render, get_object_or_404, redirect
+from django.contrib.auth.decorators import login_required
+from django.shortcuts import render, get_object_or_404
+
 from .forms import PlantForm, PotForm, PlanForm, SupplierForm, LocationForm, SoilForm
 from .models import Plant, Plan, Pot, Supplier, Soil, Location
-from django.contrib.auth.decorators import login_required
-from django.conf import settings
+
 
 # Create your views here.
 
@@ -142,14 +143,3 @@ def edit_plan(request, id):
 
     return render(request, 'plan_form.html', {'form': form})
 
-
-
-
-
-
-def only_logged_in(request):
-    if not request.user.is_authenticated:
-        return redirect('%s?next=%s' % (settings.LOGIN_URL, request.path))
-
-    # jeśli użytkownik zalogowany,
-    # pokaż widok
