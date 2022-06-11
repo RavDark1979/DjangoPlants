@@ -38,7 +38,7 @@ class MagdziunglaTests(TestCase):
 
     def test_view_main_page(self):
         client = Client()
-        response = client.get(reverse('main_page'))
+        response = client.get(reverse('mainpage'))
         self.assertEquals(response.status_code, 200)
 
     """view requires login - check if redirect works"""

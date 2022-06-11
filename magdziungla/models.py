@@ -20,7 +20,7 @@ class Location(models.Model):
         return self.name_and_sunlight()
 
     def name_and_sunlight(self):
-        return "name: {}, sunlight level: {}".format(self.name, self.sunlight)
+        return "{}".format(self.name)
 
 
 class Plant(models.Model):
