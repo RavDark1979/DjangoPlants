@@ -1,45 +1,39 @@
-
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Title</title>
-</head>
-<body>
-{% if user.is_authenticated %}
-    Hello {{ user.username }}<br>
-    <a href="{% url 'logout' %}">Logout</a>
-    {% else %}
-    <a href="{% url 'login' %}">Login</a>
-{% endif %}
+{% extends 'base.html' %}
+{% load bootstrap %}
+{% block title %} Main page {% endblock %}
+{% block page %}
+    {% if user.is_authenticated %}
+        Hello {{ user.username }}<br>
+        <a href="{% url 'logout' %}">Logout</a>
+        {% else %}
+        <a href="{% url 'login' %}">Login</a>
+    {% endif %}
 
 
-<br>
+    <br>
 
-<h1>Madziungla</h1>
-<h2> this is my app for plant management at home </h2>
-<br>
-<h2> My current status </h2>
-<a href="{% url 'plant_list' %}">Display the plant list</a>
-<br>
-<a href="{% url 'supplier_list' %}">Display the supplier list</a>
-<br>
-<a href="{% url 'plan_list' %}">Display the plan list</a>
-<br>
-<br>
-<h2> So, what would you like to do now? </h2>
-<br>
-<a href="{% url 'add_plant' %}">Add a new plant</a>
-<br>
-<a href="{% url 'add_pot' %}">Add a new pot</a>
-<br>
-<a href="{% url 'add_soil' %}">Add new soil</a>
-<br>
-<a href="{% url 'add_plan' %}">Add a new plan</a>
-<br>
-<a href="{% url 'add_location' %}">Add a new location</a>
-<br>
-<a href="{% url 'add_supplier' %}">Add a new supplier</a>
-
-</body>
-</html>
+    <h1>Madziungla</h1>
+    <h2> this is my app for home plant management</h2>
+    <br>
+    <h2> My current status </h2>
+    <a href="{% url 'plant_list' %}">Display the plant list</a>
+    <br>
+    <a href="{% url 'supplier_list' %}">Display the supplier list</a>
+    <br>
+    <a href="{% url 'plan_list' %}">Display the plan list</a>
+    <br>
+    <br>
+    <h2> So, what would you like to do now? </h2>
+    <br>
+    <a href="{% url 'add_plant' %}">Add a new plant</a>
+    <br>
+    <a href="{% url 'add_pot' %}">Add a new pot</a>
+    <br>
+    <a href="{% url 'add_soil' %}">Add new soil</a>
+    <br>
+    <a href="{% url 'add_plan' %}">Add a new plan</a>
+    <br>
+    <a href="{% url 'add_location' %}">Add a new location</a>
+    <br>
+    <a href="{% url 'add_supplier' %}">Add a new supplier</a>
+{% endblock %}

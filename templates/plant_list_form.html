@@ -1,12 +1,7 @@
-{% load static %}
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Title</title>
-    <link rel="stylesheet" href="{% static 'my_css.css' %}">
-</head>
-<body>
+{% extends 'base.html' %}
+{% load bootstrap %}
+{% block title %} Plant list {% endblock %}
+{% block page %}
     <a class="btn btn-primary" href="/">Return to the main page</a>
     {% if plants|length == 0 %}
         <h3>No plants in database</h3>
@@ -19,5 +14,4 @@
         <a href="{% url 'edit_plant' plant.id %}">Edit plant</a>
     {% endfor %}
     {% endif %}
-</body>
-</html>
+{% endblock %}

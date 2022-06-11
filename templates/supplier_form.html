@@ -1,15 +1,11 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Title</title>
-</head>
-<body>
+{% extends 'base.html' %}
+{% load bootstrap %}
+{% block title %} Supplier {% endblock %}
+{% block page %}
     <a class="btn btn-primary" href="/">Return to the main page</a>
     <form method="post">
     {% csrf_token %}
     {{ form }}
     <button type="submit">Submit supplier</button>
     </form>
-</body>
-</html>
+{% endblock %}
