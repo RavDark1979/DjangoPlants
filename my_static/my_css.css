@@ -1,3 +1,12 @@
 h3 {
-    color: darkgreen;
+    padding: 2rem;
+    color: green;
+}
+
+.plant-picture{
+    width: 150px;
+    float: left;
+}
+body {
+    margin-left: 30px;
 }

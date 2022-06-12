@@ -2,11 +2,18 @@
 {% load bootstrap %}
 {% block title %} Pot {% endblock %}
 {% block page %}
-
+<br>
     <a class="btn btn-primary" href="/">Return to the main page</a>
+    <br>
+    <br>
     <form method="post">
     {% csrf_token %}
-    {{ form }}
-    <button type="submit">Submit pot</button>
+        <div class="card" style="width: 18rem;">
+            <ul class="list-group list-group-flush">
+                {{ form }}
+        </ul>
+        </div>
+        <br>
+        <button type="submit" class="btn btn-primary"><i class="fa-solid fa-glass-water-droplet"></i> Submit pot</button>
     </form>
 {% endblock %}

@@ -2,17 +2,24 @@
 {% load bootstrap %}
 {% block title %} Supplier list {% endblock %}
 {% block page %}
-
+    <br>
     <a class="btn btn-primary" href="/">Return to the main page</a>
-    {% if suppliers|length == 0 %}
-        <h3>No suppliers in database</h3>
-    {% else %}
-        <h3>Current number of suppliers in my database: {{ suppliers|length }}</h3>
-        <hr>
+    <br>
+    <br>
+{#    {% if suppliers|length == 0 %}#}
+{#        <h3>No suppliers in database</h3>#}
+{#    {% else %}#}
+{#        <h3>Current number of suppliers in my database: {{ suppliers|length }}</h3>#}
+{#        <hr>#}
         <h2>My current list of suppliers:</h2>
         {% for supplier in suppliers %}
-        <p>{{ supplier }}</p>
-        <a href="{% url 'edit_supplier' supplier.id %}">Edit supplier</a>
+        <div class="card" style="width: 36rem ">
+              <div class="card-body">
+        <h5 class="card-title">{{ supplier }}</h5>
+        <a href="{% url 'edit_supplier' supplier.id %}}"><i class="fa-solid fa-2x fa-pen-to-square"></i></a>
+              </div>
+            </div>
+    <br>
+    <br>
     {% endfor %}
-    {% endif %}
 {% endblock %}

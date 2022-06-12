@@ -2,16 +2,28 @@
 {% load bootstrap %}
 {% block title %} Plant list {% endblock %}
 {% block page %}
+    <br>
     <a class="btn btn-primary" href="/">Return to the main page</a>
-    {% if plants|length == 0 %}
-        <h3>No plants in database</h3>
-    {% else %}
-        <h3>Current number of plants in my database: {{ plants|length }}</h3>
-        <hr>
+    <br>
+    <br>
+{#    {% if plants|length == 0 %}#}
+{#        <h3>No plants in database</h3>#}
+{#    {% else %}#}
+{#        <h3>Current number of plants in my database: {{ plants|length }}</h3>#}
+{#        <hr>#}
         <h2>My current list of plants:</h2>
+    <br>
         {% for plant in plants %}
-        <p>{{ plant }}</p>
-        <a href="{% url 'edit_plant' plant.id %}">Edit plant</a>
+            <div class="card" style="width: 36rem ">
+              <div class="card-body">
+                  <img src="/media/{{ plant.picture }}" class="plant-picture" style="width: 150px">
+                  <h5 class="card-title">{{ plant }}</h5>
+              <a href="{% url 'edit_plant' plant.id %}"><i class="fa-solid fa-2x fa-pen-to-square"></i></a>
+              </div>
+            </div>
+
+    <br>
+    <br>
+
     {% endfor %}
-    {% endif %}
 {% endblock %}

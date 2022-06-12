@@ -48,7 +48,8 @@ class Plant(models.Model):
         return self.name_and_location()
 
     def name_and_location(self):
-        return "name: {}, location: {}".format(self.name, self.location)
+        return """name: {}, location: {}""".format(self.name, self.location)
+
 
 
 class Pot(models.Model):
