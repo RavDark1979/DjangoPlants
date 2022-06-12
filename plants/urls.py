@@ -20,7 +20,7 @@ from django.conf import settings
 from django.conf.urls.static import static
 from magdziungla.views import page, all_plants, all_plans, add_plant, \
     add_pot, add_plan, add_soil, add_location, add_supplier, edit_plant,\
-    edit_pot, edit_soil, edit_plan, edit_location, edit_supplier, all_suppliers
+    edit_pot, edit_soil, edit_plan, edit_location, edit_supplier, all_suppliers, hunt
 
 urlpatterns = [
     path('admin/', admin.site.urls),
@@ -42,6 +42,7 @@ urlpatterns = [
     path('edit_location/<int:id>/', edit_location, name='edit_location'),
     path('add_soil/', add_soil, name='add_soil'),
     path('edit_soil/<int:id>/', edit_soil, name='edit_soil'),
+    path('add_location/hunt.html', hunt),
 
 
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

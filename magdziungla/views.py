@@ -143,3 +143,5 @@ def edit_plan(request, id):
 
     return render(request, 'plan_form.html', {'form': form})
 
+def hunt(request):
+    return render(request, 'hunt.html')
