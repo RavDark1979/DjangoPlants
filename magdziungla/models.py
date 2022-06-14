@@ -102,10 +102,9 @@ class Supplier(models.Model):
 
     def __str__(self):
         return self.name_and_address()
-
+#dodać widoki
     def name_and_address(self):
         return "name: {}, address: {}".format(self.name, self.address)
-
 
 class Plan(models.Model):
     """
