@@ -70,5 +70,6 @@ The app has a very intuitive menu and easily allows to add, view and modify spec
 Added, modified items are stored in database.
 
 CREDITS
+
 Thanks to Michał Dobrzycki from CodersLab (@https://github.com/michal-dobrzycki-coderslab) for excelletn mentorship
 
