@@ -100,10 +100,10 @@ class Supplier(models.Model):
     soil = models.ManyToManyField(Soil, blank=True)
 
     def __str__(self):
-        return self.name_and_address()
+        return self.supplier_details()
 
     # dodać widoki
-    def name_and_address(self):
+    def supplier_details(self):
         return "name: {}, address: {}".format(self.name, self.address)
 
 
