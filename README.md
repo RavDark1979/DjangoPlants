@@ -50,6 +50,7 @@ User can view, add and modify:
 User can plan tasks regarding to particular plants in particular locations, like fertilizing, cutting, watering, application of plant protection substances.
 
 TECHNOLGIES USED:
+- Python 3.8
 - Django
 - Postgres SQL
 - HTML
@@ -57,6 +58,8 @@ TECHNOLGIES USED:
 - FontAwesome
 
 RUNNING AND USING THE APP
+
+
 
 The app can be run via Pycharm Terminal by standard command: "python manage.py runserver"
 The app has a very intuitive menu and easily allows to add, view and modify specific fiels.
