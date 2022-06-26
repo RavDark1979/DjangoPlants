@@ -1,12 +1,12 @@
 Web application:
 
-<h1>DjangoPlants</h>
+<h1>DjangoPlants</h1>
 
 This is my app for management and maintenance of home plants.
 ![Zrzut ekranu z 2022-06-25 23-35-39](https://user-images.githubusercontent.com/66016783/175791187-2e4f82de-86c2-4041-a532-bf41ed3b0449.png)
 
 
-<h2>Project purpise and description</h>
+<h2>Project purpise and description</h2>
 The purpose of this app is to help organize the manage all the plants at home. 
 User can view, add and modify:
 1. plants 
