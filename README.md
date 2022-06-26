@@ -49,7 +49,7 @@ User can view, add and modify:
 
 User can plan tasks regarding to particular plants in particular locations, like fertilizing, cutting, watering, application of plant protection substances.
 
-<h2>Technologies used:</h>
+<h2>Technologies used:</h2>
 - Python 3.8
 - Django
 - Postgres SQL
@@ -57,7 +57,7 @@ User can plan tasks regarding to particular plants in particular locations, like
 - Bootstrap
 - FontAwesome
 
-<h2>Running and using the app</h>
+<h2>Running and using the app</h2>
 
 
 
@@ -74,9 +74,9 @@ The app has a very intuitive menu and easily allows to add, view and modify spec
 
 Added, modified items are stored in database.
 
-<h2>Credits</h>
+<h2>Credits</h2>
 
-Thanks to Michał Dobrzycki from CodersLab (@https://github.com/michal-dobrzycki-coderslab) for excelletn mentorship
+Thanks to Michał Dobrzycki from CodersLab (https://github.com/michal-dobrzycki-coderslab) for excelletn mentorship
 
-<h2>LICENSE:</h>
+<h2>LICENSE:</h2>
 Feel free to use and modify this app but please add the author info. Hope it will help you in your home gardens.
