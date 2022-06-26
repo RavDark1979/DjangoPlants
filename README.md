@@ -66,7 +66,6 @@ User can plan tasks regarding to particular plants in particular locations, like
 5. Use the command python manage.py runserver to start the app.
 6. Enjoy.
 
-The app can be run via Pycharm Terminal by standard command: "python manage.py runserver"
 The app has a very intuitive menu and easily allows to add, view and modify specific fiels.
 
 ![Zrzut ekranu z 2022-06-25 22-50-37](https://user-images.githubusercontent.com/66016783/175791229-864e97a5-dbce-4016-ba0d-5606c08d6300.png)
