@@ -6,7 +6,7 @@ This is my app for management and maintenance of home plants.
 ![Zrzut ekranu z 2022-06-25 23-35-39](https://user-images.githubusercontent.com/66016783/175791187-2e4f82de-86c2-4041-a532-bf41ed3b0449.png)
 
 
-PROJECT DESCRIPTION
+<h1>PROJECT DESCRIPTION</h1>
 The purpose of this app is to help organize the manage all the plants at home. 
 User can view, add and modify:
 1. plants 
@@ -78,3 +78,5 @@ CREDITS
 
 Thanks to Michał Dobrzycki from CodersLab (@https://github.com/michal-dobrzycki-coderslab) for excelletn mentorship
 
+LICENSE:
+Feel free to use and modify this app but please add the author info. Hope it will help you in your home gardens.
