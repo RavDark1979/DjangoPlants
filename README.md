@@ -52,7 +52,7 @@ User can plan tasks regarding to particular plants in particular locations, like
 <h2>Technologies used:</h2>
     <li>Python 3.8</li>
     <li>Django</li>
-    <li>Postgres SQL</li>
+    <li>PostgreSQL</li>
     <li>HTML</li>
     <li>Bootstrap</li>
     <li>FontAwesome</li>
