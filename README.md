@@ -59,7 +59,12 @@ User can plan tasks regarding to particular plants in particular locations, like
 
 <h2>Running and using the app</h2>
 
-
+1. Fork the repo and then clone it to PyCharm for example.
+2. In Pycharm terminal or console go to the web app folder.
+3. Use the the command to create a virtual environment (source venv/bin/activate).
+4. Go to the folder with manage.py file and use the command (in console) to create own superuser (python manage.py create superuses) to get own account.
+5. Use the command python manage.py runserver to start the app.
+6. Enjoy.
 
 The app can be run via Pycharm Terminal by standard command: "python manage.py runserver"
 The app has a very intuitive menu and easily allows to add, view and modify specific fiels.
