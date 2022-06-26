@@ -50,12 +50,12 @@ User can view, add and modify:
 User can plan tasks regarding to particular plants in particular locations, like fertilizing, cutting, watering, application of plant protection substances.
 
 <h2>Technologies used:</h2>
-- Python 3.8
-- Django
-- Postgres SQL
-- HTML
-- Bootstrap
-- FontAwesome
+    - Python 3.8
+    - Django
+    - Postgres SQL
+    - HTML
+    - Bootstrap
+    - FontAwesome
 
 <h2>Running and using the app</h2>
 
