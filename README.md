@@ -76,7 +76,7 @@ Added, modified items are stored in database.
 
 <h2>Credits</h2>
 
-Thanks to Michał Dobrzycki from CodersLab (https://github.com/michal-dobrzycki-coderslab) for excelletn mentorship
+Thanks to Michał Dobrzycki from CodersLab (https://github.com/michal-dobrzycki-coderslab) for excellent mentorship and CodersLab.
 
 <h2>LICENSE:</h2>
 Feel free to use and modify this app but please add the author info. Hope it will help you in your home gardens.
