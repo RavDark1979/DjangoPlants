@@ -1,12 +1,12 @@
-APPLICATION
+Web
 
-DjangoPlants
+<h1>DjangoPlants</h1>
 
 This is my app for management and maintenance of home plants.
 ![Zrzut ekranu z 2022-06-25 23-35-39](https://user-images.githubusercontent.com/66016783/175791187-2e4f82de-86c2-4041-a532-bf41ed3b0449.png)
 
 
-<h1>PROJECT DESCRIPTION</h1>
+<h2>Project purpise and description/h1>
 The purpose of this app is to help organize the manage all the plants at home. 
 User can view, add and modify:
 1. plants 
@@ -49,7 +49,7 @@ User can view, add and modify:
 
 User can plan tasks regarding to particular plants in particular locations, like fertilizing, cutting, watering, application of plant protection substances.
 
-TECHNOLGIES USED:
+<h2>Technologies used:</h>
 - Python 3.8
 - Django
 - Postgres SQL
@@ -57,7 +57,7 @@ TECHNOLGIES USED:
 - Bootstrap
 - FontAwesome
 
-RUNNING AND USING THE APP
+<h2>Running and using the app</h>
 
 
 
@@ -74,9 +74,9 @@ The app has a very intuitive menu and easily allows to add, view and modify spec
 
 Added, modified items are stored in database.
 
-CREDITS
+<h2>Credits</h>
 
 Thanks to Michał Dobrzycki from CodersLab (@https://github.com/michal-dobrzycki-coderslab) for excelletn mentorship
 
-LICENSE:
+<h2>LICENSE:</h>
 Feel free to use and modify this app but please add the author info. Hope it will help you in your home gardens.
